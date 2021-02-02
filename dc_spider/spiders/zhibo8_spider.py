@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import scrapy
-from dc_spider.items import DcSpiderItem
-from scrapy import Request
+
 
 class Zhibo8Spider(scrapy.Spider): #继承Spider的子类
     name='zhibo8' #name属性,指定执行爬虫的时候指定爬虫
@@ -17,14 +16,28 @@ class Zhibo8Spider(scrapy.Spider): #继承Spider的子类
                 'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
             }
 
-    #重写请求方法
-    def start_requests(self):
-        for url in start_urls:
-            print(url)
-            yield scrapy.Request(url=url,headers=headers,timeout=5)
+    # #重写请求方法
+    # def start_requests(self):
+    #     for url in start_urls:
+    #         print(url)
+    #         yield scrapy.Request(url=url,headers=headers,timeout=5)
 
     def parse(self,response):
-        item=Zhibo8Spider()
+        #处理start_urls地址对应的响应
+        ul_list=response.xpath("//div[@class='dataList']//ul")
+        # print(ul_list)
         
-        result=response.xpath()
+        for ul in ul_list:
+            #//*[@id="boxlist"]/div[3]/ul[1]/li[1]
+            print(ul)
+            print("--------------------------------")
+            li_list=ul.xpath(".//li")
+            for li in li_list:
+                item={}
+                #//*[@id="boxlist"]/div[3]/ul[1]/li[1]/span[1]/a
+                item['url']=li.xpath(".//span/a/@href").extract_first()
+                print(item)
+                
+            # print(li_list)
+        
 

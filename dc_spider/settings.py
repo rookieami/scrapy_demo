@@ -12,7 +12,7 @@ BOT_NAME = 'dc_spider'
 SPIDER_MODULES = ['dc_spider.spiders']
 NEWSPIDER_MODULE = 'dc_spider.spiders'
 
-
+LOG_LEVEL="WARNING"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'dc_spider (+http://www.yourdomain.com)'
 
@@ -88,8 +88,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-#mysql
-MYSQL_HOST=127.0.0.1
-MYSQL_DBNAME=dcspider_datas
-MYSQL_USER=root
-MYSQL_PASSWORD=sports
+# #mysql
+# MYSQL_HOST=127.0.0.1
+# MYSQL_DBNAME=dcspider_datas
+# MYSQL_USER=root
+# MYSQL_PASSWORD=sports

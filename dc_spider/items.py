@@ -38,6 +38,7 @@ class Zhibo8SpiderHomeItem(scrapy.Item):
     time=scrapy.Field() #发布时间
 
     def parse(self,request):
+        pass
         
 
 class Zhibo8SpiderItem(Zhibo8SpiderHomeItem):
@@ -45,5 +46,4 @@ class Zhibo8SpiderItem(Zhibo8SpiderHomeItem):
     直播吧新闻Item
     含新闻图片,正文
     '''
-
-    
+    pass
