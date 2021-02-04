@@ -90,7 +90,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #mysql
-MYSQL_HOST=127.0.0.1
-MYSQL_DBNAME=dcspider_datas
-MYSQL_USER=root
-MYSQL_PASSWORD=sports
+MYSQL_HOST="127.0.0.1"
+MYSQL_DBNAME="dcspider_datas"
+MYSQL_USER="root"
+MYSQL_PASSWORD="sports"
