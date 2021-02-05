@@ -7,7 +7,7 @@ import re
 import requests
 
 import json
-# logger=logging.getLogger(__name__)
+logger=logging.getLogger(__name__)
 def getFrom(catchFrom):
 
     '''
@@ -97,6 +97,11 @@ def fromatContent(content:str, word:str):
 
     #去除空的div
     content=content.replace('<div ></div>','')
+
+    #去除作者 最后一对<p>标签
+    index=content.rfind('<p>')
+    content=content[:index]
+    
     return content
     
 
@@ -145,7 +150,7 @@ def request_Wash_article(item:dict,id):
     url="http://192.168.3.98:8081/v1/article/remake"
     try:
         data={
-                "saved_id":id,"catch_from":iter['catch_from'],
+                "saved_id":id,"catch_from":item['catch_from'],
                 "origin_url":item['url'],"title":item['title'],
                 "origin_author":item['origin_dis'],"content":item['content'],
                 "img_url":item['img'],"all_tags":item['tag'],

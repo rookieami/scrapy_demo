@@ -18,7 +18,7 @@ class Zhibo8Spider(scrapy.Spider): #继承Spider的子类
     def parse(self,response):
         #处理start_urls地址对应的响应
 
-
+        # print(response.request.url)
         # endTime=getEndTime(self.name)
 
         ul_list=response.xpath("//div[@class='dataList']//ul")
@@ -31,6 +31,8 @@ class Zhibo8Spider(scrapy.Spider): #继承Spider的子类
             # print(ul)
             # print("--------------------------------")
             li_list=ul.xpath(".//li")
+            
+            print(response.request.url)
             for li in li_list:
                 try:
                     item=Zhibo8SpiderItem()
@@ -59,6 +61,8 @@ class Zhibo8Spider(scrapy.Spider): #继承Spider的子类
                     #     break
                     # if tempTime<articleTime:
                     #     tempTime=articleTime #记录最近时间
+
+                    #查一下数据库是否有这条数据,有的话
                     yield scrapy.Request(url,callback=self.req_content,meta={'item':item})
                 except Exception as e:
                     logger.warning(e)

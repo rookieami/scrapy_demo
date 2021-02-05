@@ -15,6 +15,7 @@ class Zhibo8SpiderPipeline(object):
     '''
     def process_item(self,item,spider):
 
+        # raise 
         #检查数据是否完整
 
         # print(spider.name)
@@ -44,7 +45,7 @@ class Zhibo8SpiderPipeline(object):
         self.matchTags(item,id)
 
         #文章内容进行洗稿请求
-        # self.washArticle(item,id)
+        self.washArticle(item,id)
         
 
     def  formatArticle(self,item):
